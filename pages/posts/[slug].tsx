@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import type PostType from '../../interfaces/post'
-import { Layout } from '../../components/new/layout'
+import { Layout } from '../../components/layout'
 import {
   Heading,
   Text,
