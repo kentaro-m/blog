@@ -16,9 +16,9 @@ export default function Index({ allPosts }: Props) {
         {allPosts.map((post) => {
           return (
             <Link style={{ boxShadow: `none` }} as={`/posts/${post.slug}`} href="/posts/[slug]">
-              <Flex _hover={{ opacity: '0.9' }} height={175} bg='gray.700' ml={[5, 0]} mr={[5, 0]} mb={[5, 10]} alignItems='center' justifyContent='left' borderRadius={7}>
+              <Flex _hover={{ opacity: '0.9' }} minHeight={150} bg='gray.700' ml={[5, 0]} mr={[5, 0]} mb={[5, 10]} alignItems='center' justifyContent='left' borderRadius={7}>
                 <Box key={post.slug} p={8}>
-                  <Heading as='h2' fontSize='lg' lineHeight='base' mb={2}>
+                  <Heading as='h2' fontSize={['md', 'lg']} lineHeight='base' mb={3}>
                     {post.title}
                   </Heading>
                   <Text fontSize='sm'>
