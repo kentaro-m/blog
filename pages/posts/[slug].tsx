@@ -22,6 +22,7 @@ import {
 } from '@chakra-ui/react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import { formatDate } from '../../lib/date'
 
 const components = {
   a: (props: any) => <Link {...props}>{props.children}</Link>,
@@ -77,7 +78,7 @@ export default function Post({ post }: Props) {
             {post.title}
           </Heading>
           <Text textAlign='center' mb={8} ml={[7, 10]} mr={[7, 10]}>
-            {post.date}
+            {formatDate(post.date)}
           </Text>
         </Box>
         <Box bg='gray.700' p={[7, 10]} borderRadius={[0, 7]} __css={{
