@@ -3,6 +3,7 @@ import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import type PostType from '../../interfaces/post'
 import { Layout } from '../../components/layout'
+import { CodeBlock } from '../../components/CodeBlock'
 import {
   Heading,
   Text,
@@ -12,8 +13,6 @@ import {
   ListItem,
   Box,
   Image,
-  Flex,
-  Code,
   Table,
   Thead,
   Tbody,
@@ -33,9 +32,8 @@ const components = {
   ul: ({ children }: any) => <UnorderedList>{children}</UnorderedList>,
   ol: ({ children }: any) => <OrderedList>{children}</OrderedList>,
   li: ({ children }: any) => <ListItem mt={1} mb={1}>{children}</ListItem>,
-  pre: (props: any) => <Box {...props} mb={8} />,
-  // code: (props: any) => <CodeBlock {...props} />,
-  inlineCode: ({ children }: any) => <Code background='rgb(40, 42, 54)' paddingY={0.5} paddingX={1}>{children}</Code>,
+  code: (props: any) => <CodeBlock {...props} />,
+  inlineCode: (props: any) => <CodeBlock {...props} />,
   img: (props: any) => <Image {...props} mb={8} />,
   table: (props: any) => <Table {...props} mb={8} size="sm" />,
   thead: (props: any) => <Thead {...props} />,
@@ -43,7 +41,6 @@ const components = {
   tr: (props: any) => <Tr {...props} />,
   th: (props: any) => <Th {...props} />,
   td: (props: any) => <Td {...props} />,
-  // Slide: ({ id }: { id: string }) => <Box mb={8}><Slide id={id} /></Box>
 }
 
 type Props = {
@@ -52,7 +49,7 @@ type Props = {
   preview?: boolean
 }
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post }: Props) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
