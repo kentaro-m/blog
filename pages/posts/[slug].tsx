@@ -4,6 +4,7 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import type PostType from '../../interfaces/post'
 import { Layout } from '../../components/Layout'
 import { CodeBlock } from '../../components/CodeBlock'
+import { Slide } from '../../components/Slide'
 import {
   Heading,
   Text,
@@ -48,6 +49,7 @@ const components = (slug: string) => {
     tr: (props: any) => <Tr {...props} />,
     th: (props: any) => <Th {...props} />,
     td: (props: any) => <Td {...props} />,
+    Slide: (props: any) => <Slide {...props} />,
   }
 }
 
@@ -85,7 +87,7 @@ export default function Post({ post }: Props) {
             {post.title}
           </Heading>
           <Text textAlign='center' mb={8} ml={[7, 10]} mr={[7, 10]}>
-            {formatDate(post.date)}
+            {post.formattedDate}
           </Text>
         </Box>
         <Box bg='gray.700' p={[7, 10]} borderRadius={[0, 7]} __css={{
