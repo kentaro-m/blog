@@ -1,4 +1,4 @@
-import { Layout } from '../components/layout'
+import { Layout } from '../components/Layout'
 import { Heading, Text, Box, Flex } from '@chakra-ui/react'
 import Link from 'next/link'
 import Post from '../interfaces/post'

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import type PostType from '../../interfaces/post'
-import { Layout } from '../../components/layout'
+import { Layout } from '../../components/Layout'
 import { CodeBlock } from '../../components/CodeBlock'
 import {
   Heading,
@@ -37,11 +37,11 @@ const components = (slug: string) => {
     code: (props: any) => <CodeBlock {...props} />,
     inlineCode: (props: any) => <CodeBlock {...props} />,
     img: ({ src, ...otherProps }: any) => <Image
-          src={require(`../../_posts/${slug}/${src}`).default}
-          {...otherProps}
-          mb={8}
-        />
-      ,
+      src={require(`../../_posts/${slug}/${src}`).default}
+      {...otherProps}
+      mb={8}
+    />
+    ,
     table: (props: any) => <Table {...props} mb={8} size="sm" />,
     thead: (props: any) => <Thead {...props} />,
     tbody: (props: any) => <Tbody {...props} />,

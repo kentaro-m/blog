@@ -7,6 +7,7 @@ import {
   Image,
   Flex,
 } from '@chakra-ui/react'
+import { Footer } from './Footer'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -38,7 +39,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Flex height='32px' justifyContent='center' mt={10} mb={10}>
         <Divider />
       </Flex>
-      <Box mb={10} />
+      <Flex mb={10} justifyContent='center'>
+        <Footer />
+      </Flex>
     </Container>
   )
 }
