@@ -1,14 +1,13 @@
 import { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { BIZ_UDPGothic } from '@next/font/google'
+
+const font = BIZ_UDPGothic({ subsets: ['japanese', 'latin-ext', 'latin'], weight: ['400', '700'] })
 
 export const theme = extendTheme({
   config: {
     initialColorMode: 'light',
     useSystemColorMode: true,
-  },
-  fonts: {
-    heading: "'M PLUS 2'",
-    body: "'M PLUS 2'"
   },
   styles: {
     global: {
@@ -31,7 +30,9 @@ export const theme = extendTheme({
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <main className={`${font.className}`}>
+        <Component {...pageProps} />
+      </main>
     </ChakraProvider>
   )
 }
