@@ -3,7 +3,6 @@ import { Heading, Text, Box, Flex } from '@chakra-ui/react'
 import Link from 'next/link'
 import Post from '../interfaces/post'
 import { getAllPosts } from '../lib/api'
-import { formatDate } from '../lib/date'
 
 type Props = {
   allPosts: Post[]
@@ -22,7 +21,7 @@ export default function Index({ allPosts }: Props) {
                     {post.title}
                   </Heading>
                   <Text fontSize='sm'>
-                    {formatDate(post.date)}
+                    {post.formattedDate}
                   </Text>
                 </Box>
               </Flex>

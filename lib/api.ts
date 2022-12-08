@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { formatDate } from '../lib/date'
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -27,6 +28,17 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
     if (field === 'content') {
       items[field] = content
+    }
+
+    /**
+     * NOTE:
+     * formatting for posting date on the server side
+     * since using date-fns in a component will cause errors due to different results on the client and server side
+     * @see https://github.com/vercel/next.js/discussions/39425
+     * @see https://nextjs.org/docs/messages/react-hydration-error
+     */
+    if (field === 'date') {
+      items['formattedDate'] = formatDate(data.date)
     }
 
     if (typeof data[field] !== 'undefined') {

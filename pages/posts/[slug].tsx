@@ -118,12 +118,19 @@ export async function getStaticProps({ params }: Params) {
     'content',
   ])
   const content = await serialize(post.content)
-
   return {
     props: {
       post: {
         ...post,
         content,
+        /**
+         * NOTE:
+         * formatting for posting date on the server side
+         * since using date-fns in a component will cause errors due to different results on the client and server side
+         * @see https://github.com/vercel/next.js/discussions/39425
+         * @see https://nextjs.org/docs/messages/react-hydration-error
+         */
+        formattedDate: formatDate(post.date)
       },
     },
   }
