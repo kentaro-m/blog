@@ -37,11 +37,14 @@ const components = (slug: string) => {
     li: ({ children }: any) => <ListItem mt={1} mb={1}>{children}</ListItem>,
     code: (props: any) => <CodeBlock {...props} />,
     inlineCode: (props: any) => <CodeBlock {...props} />,
-    img: ({ src, ...otherProps }: any) => <Image
-      src={require(`../../_posts/${slug}/${src}`).default}
-      {...otherProps}
-      mb={8}
-    />
+    img: ({ src, ...otherProps }: any) => {
+      const image = src.match(/https/) ? src : require(`../../_posts/${slug}/${src}`).default
+      return (<Image
+        src={image}
+        {...otherProps}
+        mb={8}
+      />)
+    }
     ,
     table: (props: any) => <Table {...props} mb={8} size="sm" />,
     thead: (props: any) => <Thead {...props} />,
