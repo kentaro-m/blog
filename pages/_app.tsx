@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { BIZ_UDGothic } from '@next/font/google'
+import { BIZ_UDPGothic } from '@next/font/google'
 
-const font = BIZ_UDGothic({ weight: ['400', '700'] })
+const font = BIZ_UDPGothic({ weight: ['400', '700'] })
 
 export const theme = extendTheme({
   config: {
