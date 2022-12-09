@@ -28,7 +28,7 @@ import { formatDate } from '../../lib/date'
 const components = (slug: string) => {
   return {
     a: (props: any) => <Link {...props}>{props.children}</Link>,
-    p: ({ children }: any) => <Text mb={8} lineHeight='tall' >{children}</Text>,
+    p: ({ children }: any) => <Text mb={8} lineHeight='1.75' >{children}</Text>,
     h2: ({ children }: any) => <Heading as='h2' fontSize='2xl' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
     h3: ({ children }: any) => <Heading as='h3' fontSize='xl' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
     h4: ({ children }: any) => <Heading as='h4' fontSize='lg' fontWeight='bold' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
