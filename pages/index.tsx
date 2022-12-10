@@ -11,9 +11,9 @@ type Props = {
 export default function Index({ allPosts }: Props) {
   return (
     <Layout>
-      <Box>
-        {allPosts.map((post) => {
-          return (
+      {allPosts.map((post) => {
+        return (
+          <Box as='article'>
             <Link style={{ boxShadow: `none` }} as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
               <Flex _hover={{ opacity: '0.9' }} minHeight={150} bg='gray.700' ml={[5, 0]} mr={[5, 0]} mb={[5, 10]} alignItems='center' justifyContent='left' borderRadius={7}>
                 <Box key={post.slug} p={8}>
@@ -26,9 +26,9 @@ export default function Index({ allPosts }: Props) {
                 </Box>
               </Flex>
             </Link>
-          )
-        })}
-      </Box>
+          </Box>
+        )
+      })}
     </Layout>
   )
 }

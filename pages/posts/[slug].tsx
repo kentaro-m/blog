@@ -70,6 +70,7 @@ export default function Post({ post }: Props) {
   return (
     <Layout>
       <Box
+        as='article'
         sx={{
           ':not(li) > ul': {
             mb: 8
@@ -85,7 +86,7 @@ export default function Post({ post }: Props) {
           },
         }}
       >
-        <Box as='article'>
+        <Box>
           <Heading as='h1' textAlign='center' fontSize='2xl' lineHeight='base' mb={4} ml={[7, 10]} mr={[7, 10]}>
             {post.title}
           </Heading>
