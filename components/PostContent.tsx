@@ -53,7 +53,7 @@ const PostContentLayout = ({ post, children }: PostContentLayoutProps) => (
         {post.formattedDate}
       </Text>
     </Box>
-    <Box bg='gray.700' p={[7, 10]} borderRadius={[0, 7]} __css={{
+    <Box bg='dark.800' p={[7, 10]} borderRadius={[0, 7]} __css={{
       '> ul': {
         mb: 8,
       },
