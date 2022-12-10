@@ -19,7 +19,7 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout>
+    <Layout post={{ title: post.title }}>
       <PostContent post={{
         formattedDate: post.formattedDate,
         title: post.title,
