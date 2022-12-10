@@ -5,7 +5,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-const font = fetch(new URL('../../assets/BIZUDPGothic-Bold.ttf', import.meta.url)).then(
+const font = fetch(new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)).then(
   (res) => res.arrayBuffer(),
 );
 
@@ -32,7 +32,7 @@ export default async function (req: NextRequest) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: 80,
-          fontFamily: 'BIZ UDPGothic',
+          fontFamily: 'Noto Sans JP',
         }}
       >
         <div
@@ -78,7 +78,7 @@ export default async function (req: NextRequest) {
         height: 600,
         fonts: [
           {
-            name: 'BIZ UDPGothic',
+            name: 'Noto Sans JP',
             data: fontData,
             style: 'normal',
           },
