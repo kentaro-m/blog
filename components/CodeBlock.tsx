@@ -28,7 +28,7 @@ export const CodeBlock = ({ children, className }: any) => {
         </Box>
       )}
     </Highlight>) : (
-      <Code background='rgb(40, 42, 54)' color='gray.200'>
+      <Code background='rgb(40, 42, 54)' color='gray.200' maxWidth='100%' whiteSpace='break-spaces'>
         {children}
       </Code>
     )
