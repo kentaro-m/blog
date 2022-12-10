@@ -1,13 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 import { Container } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-import {
-  Box,
-  Image,
-  Flex,
-} from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { Footer } from './Footer'
+import { Header } from './Header'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -26,15 +22,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <Container maxW="container.md" p={0}>
-      <Flex as='header' justifyContent='center' mt={10} mb={10}>
-        <Link href='/'>
-          <Image
-            boxSize='50px'
-            src='/avatar.jpeg'
-            borderRadius='50%'
-          />
-        </Link>
-      </Flex>
+      <Header />
       {children}
       <Flex height='32px' justifyContent='center' mt={10} mb={10}>
         <Divider />
