@@ -26,7 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <Container maxW="container.md" p={0}>
-      <Flex justifyContent='center' mt={10} mb={10}>
+      <Flex as='header' justifyContent='center' mt={10} mb={10}>
         <Link href='/'>
           <Image
             boxSize='50px'
