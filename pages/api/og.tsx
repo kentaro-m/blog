@@ -5,7 +5,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 
-const font = fetch(new URL('../../assets/BIZUDPGothic-Bold.ttf', import.meta.url)).then(
+const font = fetch('https://fonts.googleapis.com/css?family=BIZ+UDGothic:700').then(
   (res) => res.arrayBuffer(),
 );
 
