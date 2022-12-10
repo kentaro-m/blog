@@ -41,8 +41,6 @@ export default async function (req: NextRequest) {
             fontSize: 60,
             fontWeight: 'bold',
             color: '#D6BCFA',
-            lineHeight: 1.7,
-            wordBreak: 'break-all',
           }}
         >
           {title}
