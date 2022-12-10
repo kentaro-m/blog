@@ -1,5 +1,4 @@
 import { ImageResponse } from '@vercel/og'
-import { Box } from '@chakra-ui/react'
 
 export const config = {
   runtime: 'experimental-edge',
@@ -8,16 +7,20 @@ export const config = {
 export default function () {
   return new ImageResponse(
     (
-      <Box
-        width='100%'
-        height='100%'
-        display='flex'
-        textAlign='center'
-        alignItems='center'
-        justifyContent='center'
+      <div
+        style={{
+          fontSize: 128,
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          textAlign: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
       >
         Hello world!
-      </Box>
+      </div>
     ),
     {
       width: 1200,
