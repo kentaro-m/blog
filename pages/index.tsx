@@ -1,6 +1,5 @@
 import { Layout } from '../components/Layout'
-import { Heading, Text, Box, Flex } from '@chakra-ui/react'
-import Link from 'next/link'
+import { PostSummary } from '../components/PostSummary'
 import Post from '../interfaces/post'
 import { getAllPosts } from '../lib/api'
 
@@ -13,20 +12,10 @@ export default function Index({ allPosts }: Props) {
     <Layout>
       {allPosts.map((post) => {
         return (
-          <Box as='article'>
-            <Link style={{ boxShadow: `none` }} as={`/posts/${post.slug}`} href="/posts/[slug]" key={post.slug}>
-              <Flex _hover={{ opacity: '0.9' }} minHeight={150} bg='gray.700' ml={[5, 0]} mr={[5, 0]} mb={[5, 10]} alignItems='center' justifyContent='left' borderRadius={7}>
-                <Box key={post.slug} p={8}>
-                  <Heading as='h2' fontSize={['md', 'lg']} lineHeight='base' mb={3}>
-                    {post.title}
-                  </Heading>
-                  <Text fontSize='sm'>
-                    {post.formattedDate}
-                  </Text>
-                </Box>
-              </Flex>
-            </Link>
-          </Box>
+          <PostSummary
+            post={{ slug: post.slug, title: post.title, formattedDate: post.formattedDate }}
+            key={post.slug}
+          />
         )
       })}
     </Layout>
