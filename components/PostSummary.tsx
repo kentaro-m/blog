@@ -17,7 +17,7 @@ export const PostSummary =　 ({ post }: Props) => (
           <Heading as='h2' fontSize={['md', 'lg']} lineHeight='base' mb={3}>
             {post.title}
           </Heading>
-          <Text fontSize='sm'>
+          <Text fontSize='xs'>
             {post.formattedDate}
           </Text>
         </Box>
