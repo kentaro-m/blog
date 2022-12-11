@@ -23,51 +23,66 @@ export default async function (req: NextRequest) {
     return new ImageResponse(
       (
         <div
-        style={{
-          background: '#080b14',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignContent: 'center',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: 80,
-          fontFamily: 'Noto Sans JP',
-        }}
-      >
-        <div
           style={{
             width: '100%',
-            fontSize: 60,
-            fontWeight: 'bold',
-            color: '#D6BCFA',
-          }}
-        >
-          {title}
-        </div>
-        <div
-          style={{
+            height: '100%',
+            /**
+             * NOTE: 0: #d6bcfa, 50: #805ad5, 100: #553c9a
+             * @see https://cssgradient.io/
+             */
+            background: 'linear-gradient(135deg, rgba(214,188,250,1) 0%, rgba(128,90,213,1) 50%, rgba(85,60,154,1) 100%)',
+            padding: 25,
             display: 'flex',
-            width: '100%',
-            alignItems: 'center',
           }}
         >
-          <img
-            src='https://github.com/kentaro-m.png'
-            style={{
-              width: 100,
-              borderRadius: '50%',
-              marginRight: '30px',
-            }}
-          />
           <div
             style={{
-              fontWeight: 'bold',
-              fontSize: 32,
-              alignItems: 'center',
-              color: '#FFFFFF',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignContent: 'center',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: 60,
+              fontFamily: 'Noto Sans JP',
+              borderRadius: 25,
+              background: '#080b14',
             }}
-          >matsuken</div>
+          >
+            <div
+              style={{
+                width: '100%',
+                fontSize: 60,
+                fontWeight: 'bold',
+                color: '#D6BCFA',
+              }}
+            >
+              {title}
+            </div>
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src='https://github.com/kentaro-m.png'
+              style={{
+                width: 100,
+                borderRadius: '50%',
+                marginRight: '30px',
+              }}
+            />
+            <div
+              style={{
+                fontWeight: 'bold',
+                fontSize: 32,
+                alignItems: 'center',
+                color: '#FFFFFF',
+              }}
+            >matsuken</div>
+          </div>
         </div>
       </div>
       ),
