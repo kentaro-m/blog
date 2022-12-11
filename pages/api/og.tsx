@@ -27,10 +27,10 @@ export default async function (req: NextRequest) {
             width: '100%',
             height: '100%',
             /**
-             * NOTE: 0: #d6bcfa, 50: #805ad5, 100: #553c9a
+             * NOTE: 0: #d6bcfa, 50: #9f7aea, 100: #6b46c1
              * @see https://cssgradient.io/
              */
-            background: 'linear-gradient(135deg, rgba(214,188,250,1) 0%, rgba(128,90,213,1) 50%, rgba(85,60,154,1) 100%)',
+            background: 'linear-gradient(135deg, rgba(214,188,250,1) 0%, rgba(159,122,234,1) 50%, rgba(107,70,193,1) 100%)',
             padding: 25,
             display: 'flex',
           }}
@@ -54,7 +54,7 @@ export default async function (req: NextRequest) {
                 width: '100%',
                 fontSize: 60,
                 fontWeight: 'bold',
-                color: '#D6BCFA',
+                color: '#E2E8F0',
               }}
             >
               {title}
@@ -79,7 +79,7 @@ export default async function (req: NextRequest) {
                 fontWeight: 'bold',
                 fontSize: 32,
                 alignItems: 'center',
-                color: '#FFFFFF',
+                color: '#E2E8F0',
               }}
             >matsuken</div>
           </div>
