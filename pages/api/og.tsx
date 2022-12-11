@@ -54,7 +54,7 @@ export default async function (req: NextRequest) {
                 width: '100%',
                 fontSize: 60,
                 fontWeight: 'bold',
-                color: '#E2E8F0',
+                color: '#D6BCFA',
               }}
             >
               {title}
