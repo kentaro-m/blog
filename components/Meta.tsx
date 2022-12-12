@@ -8,7 +8,7 @@ type Props = {
 }
 
 const SITE_TITLE = 'kentarom\'s blog'
-const SITE_URL = 'https://blog-kentarom.vercel.app'
+const SITE_URL = 'https://blog.kentarom.com'
 
 export const Meta = ({ post }: Props) => {
   const router = useRouter()
