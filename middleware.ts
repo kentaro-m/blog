@@ -5,8 +5,7 @@ import type { NextRequest } from 'next/server'
  * NOTE: redirect /:path -> /posts/:path
  */
 export function middleware(request: NextRequest) {
-  console.log(request.nextUrl.pathname)
-  return NextResponse.redirect(new URL(`/posts${request.nextUrl.pathname}`, request.url))
+  return NextResponse.redirect(new URL(`/posts${request.nextUrl.pathname}`, request.url), 301)
 }
 
 export const config = {
