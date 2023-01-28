@@ -14,7 +14,7 @@ export default function Post({ post }) {
   }
 
   return (
-    <Layout post={{ title: post.title.text.content }}>
+    <Layout post={{ title: post.title.text.content, pathname: post.pathname }}>
       <PostContent post={{
         formattedDate: post.formattedDate,
         title: post.title,
@@ -47,6 +47,7 @@ export const getStaticProps = async (context) => {
     props: {
       page,
       post: {
+        pathname: `/posts/${id}`,
         content,
         formattedDate: formatDate(date),
         // @ts-expect-error

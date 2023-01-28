@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 type Props = {
   post: {
     title?: string
+    pathname?: string
   }
 }
 
@@ -11,13 +11,12 @@ const SITE_TITLE = 'kentarom\'s blog'
 const SITE_URL = 'https://blog.kentarom.com'
 
 export const Meta = ({ post }: Props) => {
-  const router = useRouter()
   return (
     <Head>
       <title>{post.title !== '' ? `${post.title} | ${SITE_TITLE}` : SITE_TITLE}</title>
       <meta property='og:type' content='article' />
       <meta property='og:site_name' content={SITE_TITLE} />
-      <meta property='og:url' content={`${SITE_URL}${router.pathname}`} />
+      <meta property='og:url' content={`${SITE_URL}${post.pathname}`} />
       <meta
         property='og:image'
         content={`${SITE_URL}/api/og?title=${encodeURIComponent(post.title !== '' ? post.title : SITE_TITLE)}`}
