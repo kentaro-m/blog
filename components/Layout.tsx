@@ -9,6 +9,7 @@ import { Meta } from './Meta'
 type LayoutProps = {
   post?: {
     title: string
+    pathname: string
   }
   children: React.ReactNode
 }
@@ -27,7 +28,8 @@ export const Layout: React.FC<LayoutProps> = ({ children, post }) => {
   return (
     <>
       <Meta post={{
-        title: post?.title || ''
+        title: post?.title || '',
+        pathname: post?.pathname || '',
       }} />
       <Container maxW="container.md" p={0}>
         <Header />

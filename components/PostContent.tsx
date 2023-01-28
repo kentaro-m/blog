@@ -67,7 +67,7 @@ const PostContentLayout = ({ post, children }: PostContentLayoutProps) => (
   </Box>
 )
 
-const components = (slug: string) => {
+const components = () => {
   return {
     a: (props: any) => <Link {...props}>{props.children}</Link>,
     p: ({ children }: any) => <Text mb={8} lineHeight='1.75' >{children}</Text>,
@@ -79,13 +79,13 @@ const components = (slug: string) => {
     li: ({ children }: any) => <ListItem mt={1} mb={1}>{children}</ListItem>,
     code: (props: any) => <CodeBlock {...props} />,
     inlineCode: (props: any) => <CodeBlock {...props} />,
-    img: ({ src, ...otherProps }: any) => {
-      const image = src.match(/https/) ? src : require(`../_posts/${slug}/${src}`).default
-      return (<Image
-        src={image}
-        {...otherProps}
-        mb={8}
-      />)
+    img: (props: any) => {
+      return (
+        <Image
+          {...props}
+          mb={8}
+        />
+      )
     },
     table: (props: any) => <Table {...props} mb={8} size="sm" />,
     thead: (props: any) => <Thead {...props} />,
@@ -99,16 +99,15 @@ const components = (slug: string) => {
 
 type PostContentProps = {
   post: {
-    title: string
+    title: any
     formattedDate: string
-    slug: string
     content: any
   }
 }
 
 export const PostContent = ({ post }: PostContentProps) => (
-  <PostContentLayout post={{ title: post.title, formattedDate: post.formattedDate }}>
-    <MDXRemote {...post.content} components={components(post.slug)} />
+  <PostContentLayout post={{ title: post.title.text.content, formattedDate: post.formattedDate }}>
+    <MDXRemote {...post.content} components={components()} />
   </PostContentLayout>
 )
 
