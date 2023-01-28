@@ -41,7 +41,7 @@ export const getStaticProps = async (context) => {
   const postContent = await getPostContent(id)
   const content = await serialize(postContent)
   // @ts-expect-error
-  const date = page.properties.Date.date.start || page.created_time;
+  const date = page.properties.Date.date?.start || page.created_time;
 
   return {
     props: {
