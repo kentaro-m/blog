@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
   
   const matchPath = postUrlList.find(postUrl => request.nextUrl.pathname.includes(postUrl.slug))
   if (matchPath) {
-    return NextResponse.redirect(new URL(`/notion/${matchPath.id}`, request.url), 301)
+    return NextResponse.redirect(new URL(`/posts/${matchPath.id}`, request.url), 301)
   }
 
   return NextResponse.next()
