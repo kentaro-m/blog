@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         if (status === 'Draft') return
 
         // @ts-expect-error
-        const date = post.properties.Date.date.start;
+        const date = post.properties.Date.date?.start;
 
         return {
           id: post.id,
