@@ -4,8 +4,13 @@ import styled from '@emotion/styled'
 import { Flex } from '@chakra-ui/react'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { Meta } from './Meta'
 
 type LayoutProps = {
+  post?: {
+    title: string
+    pathname: string
+  }
   children: React.ReactNode
 }
 
@@ -18,10 +23,14 @@ const Divider = styled.div`
   }
 `
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ({ children, post }) => {
 
   return (
     <>
+      <Meta post={{
+        title: post?.title || '',
+        pathname: post?.pathname || '',
+      }} />
       <Container maxW="container.md" p={0}>
         <Header />
         {children}

@@ -1,7 +1,6 @@
-'use client'
-
+import { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { BIZ_UDPGothic } from "next/font/google"
+import { BIZ_UDPGothic } from "@next/font/google"
 
 const font = BIZ_UDPGothic({ weight: ['400', '700'], preload: false })
 
@@ -49,10 +48,10 @@ export const theme = extendTheme({
   }
 })
 
-export const Provider = ({ children }: { children: React.ReactNode }) => {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      {children}
+      <Component {...pageProps} />
     </ChakraProvider>
   )
 }
