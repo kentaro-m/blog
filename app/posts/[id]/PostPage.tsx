@@ -9,7 +9,7 @@ export default function PostPage({ post }) {
   }
 
   return (
-    <Layout post={{ title: post.title.text.content, pathname: post.pathname }}>
+    <Layout>
       <PostContent post={{
         formattedDate: post.formattedDate,
         title: post.title,
