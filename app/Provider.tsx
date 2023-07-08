@@ -1,7 +1,7 @@
 'use client'
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { BIZ_UDPGothic } from "@next/font/google"
+import { BIZ_UDPGothic } from "next/font/google"
 
 const font = BIZ_UDPGothic({ weight: ['400', '700'], preload: false })
 
