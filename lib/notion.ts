@@ -25,6 +25,7 @@ export const getBlocks = async (blockId) => {
       start_cursor: cursor,
       block_id: blockId,
     })
+    // @ts-expect-error
     blocks.push(...results)
     if (!next_cursor) {
       break
@@ -38,5 +39,5 @@ export const getPostContent = async (pageId) => {
   const n2m = new NotionToMarkdown({ notionClient: notion })
   const mdblocks = await n2m.pageToMarkdown(pageId)
   const mdString = n2m.toMarkdownString(mdblocks)
-  return mdString
+  return mdString.parent
 }
