@@ -11,6 +11,8 @@ type Post = {
 
 const databaseId = process.env.NOTION_DATABASE_ID
 
+export const revalidate = 60
+
 type Status = 'Draft' | 'Published'
 
 const SITE_URL = 'https://blog.kentarom.com'

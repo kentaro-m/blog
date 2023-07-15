@@ -3,6 +3,7 @@ import { NotionToMarkdown } from 'notion-to-md'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
+  timeoutMs: 5000,
 })
 
 export const getDatabase = async (databaseId) => {
@@ -36,8 +37,15 @@ export const getBlocks = async (blockId) => {
 }
 
 export const getPostContent = async (pageId) => {
-  const n2m = new NotionToMarkdown({ notionClient: notion })
-  const mdblocks = await n2m.pageToMarkdown(pageId)
-  const mdString = n2m.toMarkdownString(mdblocks)
-  return mdString
+  const n2m = new NotionToMarkdown({
+    notionClient: notion,
+    config: {
+      parseChildPages: false,
+    }
+  })
+  const response = await notion.blocks.children.list({
+    block_id: pageId,
+  })
+  const result = await Promise.all(response.results.map((block) => n2m.blockToMarkdown(block)))
+  return result.join('\n\n')
 }

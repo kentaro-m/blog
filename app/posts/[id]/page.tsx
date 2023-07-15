@@ -8,6 +8,8 @@ import { formatDate } from '../../../lib/date'
 import PostPage from './PostPage'
 import { Metadata } from 'next'
 
+export const revalidate = 60
+
 const databaseId = process.env.NOTION_DATABASE_ID
 
 type Props = {
@@ -52,8 +54,7 @@ export const generateStaticParams = async () => {
 }
 
 const getPost = async (id: string) => {
-  const page = await getPage(id)
-  const postContent = await getPostContent(id)
+  const [page, postContent] = await Promise.all([getPage(id), getPostContent(id)])
   const content = await serialize(postContent)
   // @ts-expect-error
   const date = page.properties.Date.date?.start || page.created_time;
