@@ -3,7 +3,6 @@ import { NotionToMarkdown } from 'notion-to-md'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
-  timeoutMs: 5000,
 })
 
 export const getDatabase = async (databaseId) => {

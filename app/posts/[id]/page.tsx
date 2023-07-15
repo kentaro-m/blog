@@ -50,7 +50,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
 export const generateStaticParams = async () => {
   const database = await getDatabase(databaseId)
-  return database.map((page) => ({ params: { id: page.id } }))
+  return database.map((page) => ({ id: page.id }))
 }
 
 const getPost = async (id: string) => {
