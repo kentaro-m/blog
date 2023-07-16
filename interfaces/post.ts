@@ -1,9 +1,9 @@
 type PostType = {
-  slug: string
-  title: string
-  date: string
-  formattedDate: string
-  content: any
-}
+  slug: string;
+  title: string;
+  date: string;
+  formattedDate: string;
+  content: any;
+};
 
-export default PostType
+export default PostType;

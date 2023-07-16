@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import { Layout } from '../components/Layout'
-import { PostSummary } from '../components/PostSummary'
+import { Layout } from '../components/Layout';
+import { PostSummary } from '../components/PostSummary';
 
 type Post = {
-  id: string
-  title: string
-  formattedDate: string
-}
+  id: string;
+  title: string;
+  formattedDate: string;
+};
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
 export default function IndexPage({ posts }: Props) {
   return (
@@ -19,11 +19,15 @@ export default function IndexPage({ posts }: Props) {
       {posts.map((post) => {
         return (
           <PostSummary
-            post={{ slug: post.id, title: post.title, formattedDate: post.formattedDate }}
+            post={{
+              slug: post.id,
+              title: post.title,
+              formattedDate: post.formattedDate,
+            }}
             key={post.id}
           />
-        )
+        );
       })}
     </Layout>
-  )
+  );
 }
