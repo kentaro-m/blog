@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { formatDate } from '../../../lib/date'
 import PostPage from './PostPage'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 export const revalidate = 60
 
@@ -69,6 +70,10 @@ const getPost = async (id: string) => {
 }
 
 export default async function Post({ params }: Props) {
+  if (!params.id) {
+    notFound()
+  }
+
   const post = await getPost(params.id)
 
   return (
