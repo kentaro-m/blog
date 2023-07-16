@@ -6,7 +6,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "typecheck": "tsc",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.2",
@@ -36,6 +37,7 @@
     "eslint-config-next": "13.4.10",
     "eslint-config-prettier": "^8.8.0",
     "file-loader": "^6.2.0",
+    "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "scaffdog": "^2.5.0"
   }
