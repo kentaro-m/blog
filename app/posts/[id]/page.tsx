@@ -22,7 +22,8 @@ type Props = {
 const SITE_URL = 'https://blog.kentarom.com'
 const SITE_TITLE = 'kentarom\'s blog'
 
-export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: Props): Promise<Metadata | undefined> => {
+  try {
   const page = await getPage(params.id)
   // @ts-expect-error
   const pageTitle = page.properties.Name.title[0].text.content
@@ -46,6 +47,10 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
         `${SITE_URL}/api/og?title=${encodeURIComponent(pageTitle)}`
       ]
     }
+  }
+  } catch (error) {
+    console.error(error)
+    return undefined
   }
 }
 
