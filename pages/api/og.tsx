@@ -1,23 +1,23 @@
-import { ImageResponse } from '@vercel/og'
-import { NextRequest } from 'next/server'
+import { ImageResponse } from '@vercel/og';
+import { NextRequest } from 'next/server';
 
 export const config = {
   runtime: 'edge',
-}
+};
 
-const font = fetch(new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)).then(
-  (res) => res.arrayBuffer(),
-);
+const font = fetch(
+  new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)
+).then((res) => res.arrayBuffer());
 
 export default async function (req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
-    const SLICE_LENGTH = 64
+    const SLICE_LENGTH = 64;
     const hasTitle = searchParams.has('title');
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, SLICE_LENGTH)
-      : 'kentarom\'s blog';
+      : "kentarom's blog";
     const fontData = await font;
 
     return new ImageResponse(
@@ -30,7 +30,8 @@ export default async function (req: NextRequest) {
              * NOTE: 0: #d6bcfa, 50: #9f7aea, 100: #6b46c1
              * @see https://cssgradient.io/
              */
-            background: 'linear-gradient(135deg, rgba(214,188,250,1) 0%, rgba(159,122,234,1) 50%, rgba(107,70,193,1) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(214,188,250,1) 0%, rgba(159,122,234,1) 50%, rgba(107,70,193,1) 100%)',
             padding: 25,
             display: 'flex',
           }}
@@ -59,32 +60,34 @@ export default async function (req: NextRequest) {
             >
               {title}
             </div>
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              alignItems: 'center',
-            }}
-          >
-            <img
-              src='https://github.com/kentaro-m.png'
-              style={{
-                width: 100,
-                borderRadius: '50%',
-                marginRight: '30px',
-              }}
-            />
             <div
               style={{
-                fontWeight: 'bold',
-                fontSize: 32,
+                display: 'flex',
+                width: '100%',
                 alignItems: 'center',
-                color: '#E2E8F0',
               }}
-            >matsuken</div>
+            >
+              <img
+                src="https://github.com/kentaro-m.png"
+                style={{
+                  width: 100,
+                  borderRadius: '50%',
+                  marginRight: '30px',
+                }}
+              />
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 32,
+                  alignItems: 'center',
+                  color: '#E2E8F0',
+                }}
+              >
+                matsuken
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       ),
       {
         width: 1200,
@@ -96,12 +99,12 @@ export default async function (req: NextRequest) {
             style: 'normal',
           },
         ],
-      },
-    )
+      }
+    );
   } catch (e: any) {
-    console.log(`${e.message}`)
+    console.log(`${e.message}`);
     return new Response(`Failed to generate the image`, {
       status: 500,
-    })
+    });
   }
 }

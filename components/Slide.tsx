@@ -1,20 +1,20 @@
-import React from 'react'
-import { Box } from '@chakra-ui/react'
+import React from 'react';
+import { Box } from '@chakra-ui/react';
 
 type SlideProps = {
-  id: string
-  url?: string
-}
+  id: string;
+  url?: string;
+};
 
 export const Slide: React.FC<SlideProps> = ({ id }) => {
   return (
     <Box
-      position='relative'
-      width='100%'
+      position="relative"
+      width="100%"
       height={0}
       left={0}
-      paddingBottom='56.1987%'
-      className='slide-embed'
+      paddingBottom="56.1987%"
+      className="slide-embed"
     >
       <iframe
         src={`//speakerdeck.com/player/${id}`}
@@ -24,11 +24,11 @@ export const Slide: React.FC<SlideProps> = ({ id }) => {
           left: 0,
           width: '100%',
           height: '100%',
-          position: 'absolute'
+          position: 'absolute',
         }}
-        frameBorder='0'
+        frameBorder="0"
         allowFullScreen
       />
     </Box>
-  )
-}
+  );
+};

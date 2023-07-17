@@ -5,7 +5,9 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.2",
@@ -31,7 +33,13 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "encoding": "^0.1.13",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "eslint-config-prettier": "^8.8.0",
     "file-loader": "^6.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
     "scaffdog": "^2.5.0"
   }
 }
