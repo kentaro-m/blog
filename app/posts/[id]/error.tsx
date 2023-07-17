@@ -1,14 +1,11 @@
-'use client'
+'use client';
 
-import ErrorPage from '../../ErrorPage'
+import ErrorPage from '../../ErrorPage';
 
 export default function Error({
   error,
 }: {
-  error: Error & { digest?: string }
+  error: Error & { digest?: string };
 }) {
-
-  return (
-    <ErrorPage error={error} />
-  )
+  return <ErrorPage error={error} />;
 }
