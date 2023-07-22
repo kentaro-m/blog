@@ -1,5 +1,8 @@
 import { Provider } from './Provider';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
+import Loading from './loading';
+import { Layout } from '../components/Layout';
 
 export const metadata: Metadata = {
   icons: [
@@ -43,7 +46,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Layout>
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </Layout>
+        </Provider>
       </body>
     </html>
   );
