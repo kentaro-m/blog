@@ -1,6 +1,5 @@
 'use client';
 
-import { Layout } from '../components/Layout';
 import { PostSummary } from '../components/PostSummary';
 
 type Post = {
@@ -15,7 +14,7 @@ type Props = {
 
 export default function IndexPage({ posts }: Props) {
   return (
-    <Layout>
+    <>
       {posts.map((post) => {
         return (
           <PostSummary
@@ -28,6 +27,6 @@ export default function IndexPage({ posts }: Props) {
           />
         );
       })}
-    </Layout>
+    </>
   );
 }
