@@ -1,6 +1,5 @@
 'use client';
 
-import { Layout } from '../../../components/Layout';
 import { PostContent } from '../../../components/PostContent';
 
 export default function PostPage({ post }) {
@@ -9,7 +8,7 @@ export default function PostPage({ post }) {
   }
 
   return (
-    <Layout>
+    <>
       <PostContent
         post={{
           formattedDate: post.formattedDate,
@@ -17,6 +16,6 @@ export default function PostPage({ post }) {
           content: post.content,
         }}
       />
-    </Layout>
+    </>
   );
 }
