@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const PostSummary = ({ post }: Props) => (
-  <Box as="article">
+  <Box>
     <Link
       style={{ boxShadow: `none` }}
       as={`/posts/${post.slug}`}
@@ -26,6 +26,7 @@ export const PostSummary = ({ post }: Props) => (
         alignItems="center"
         justifyContent="left"
         borderRadius={7}
+        as="article"
       >
         <Box key={post.slug} p={8}>
           <Heading as="h2" fontSize={['md', 'lg']} lineHeight="base" mb={3}>
