@@ -12,7 +12,7 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   return (
-    <Layout>
+    <>
       <Box>
         <Heading
           as="h1"
@@ -29,6 +29,6 @@ export default function ErrorPage({
           <Link href="/">トップに戻る</Link>
         </Center>
       </Box>
-    </Layout>
+    </>
   );
 }
