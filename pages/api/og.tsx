@@ -5,9 +5,9 @@ export const config = {
   runtime: 'edge',
 };
 
-// const font = fetch(
-//   new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)
-// ).then((res) => res.arrayBuffer());
+const font = fetch(
+  new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)
+).then((res) => res.arrayBuffer());
 
 export default async function (req: NextRequest) {
   try {
@@ -18,7 +18,7 @@ export default async function (req: NextRequest) {
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, SLICE_LENGTH)
       : "kentarom's blog";
-    // const fontData = await font;
+    const fontData = await font;
 
     return new ImageResponse(
       (
@@ -45,7 +45,7 @@ export default async function (req: NextRequest) {
               flexDirection: 'column',
               justifyContent: 'space-between',
               padding: 60,
-              // fontFamily: 'Noto Sans JP',
+              fontFamily: 'Noto Sans JP',
               borderRadius: 25,
               background: '#080b14',
             }}
@@ -92,13 +92,13 @@ export default async function (req: NextRequest) {
       {
         width: 1200,
         height: 630,
-        // fonts: [
-        //   {
-        //     name: 'Noto Sans JP',
-        //     data: fontData,
-        //     style: 'normal',
-        //   },
-        // ],
+        fonts: [
+          {
+            name: 'Noto Sans JP',
+            data: fontData,
+            style: 'normal',
+          },
+        ],
       }
     );
   } catch (e: any) {
