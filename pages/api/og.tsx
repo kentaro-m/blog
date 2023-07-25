@@ -15,8 +15,12 @@ export default async function (req: NextRequest) {
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, SLICE_LENGTH)
       : "kentarom's blog";
+    const author = 'matsuken';
     const font = fetch(
-      new URL(`/api/font?font=Noto+Sans+JP&text=${title}`, req.nextUrl.origin)
+      new URL(
+        `/api/font?font=Noto+Sans+JP&text=${title}${author}`,
+        req.nextUrl.origin
+      )
     ).then((res) => res.arrayBuffer());
     const fontData = await font;
 
@@ -83,7 +87,7 @@ export default async function (req: NextRequest) {
                   color: '#E2E8F0',
                 }}
               >
-                matsuken
+                {author}
               </div>
             </div>
           </div>
