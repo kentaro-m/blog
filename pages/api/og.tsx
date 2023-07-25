@@ -5,10 +5,7 @@ export const config = {
   runtime: 'edge',
 };
 
-const font = fetch(
-  new URL('../../assets/NotoSansJP-Bold.otf', import.meta.url)
-).then((res) => res.arrayBuffer());
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async function (req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
@@ -18,6 +15,9 @@ export default async function (req: NextRequest) {
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, SLICE_LENGTH)
       : "kentarom's blog";
+    const font = fetch(
+      new URL(`/api/font?font=Noto+Sans+JP&text=${title}`, req.nextUrl.origin)
+    ).then((res) => res.arrayBuffer());
     const fontData = await font;
 
     return new ImageResponse(
