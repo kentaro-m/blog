@@ -9,7 +9,7 @@ type Post = {
   formattedDate: string;
 };
 
-const databaseId = process.env.NOTION_DATABASE_ID;
+const databaseId: string = process.env.NOTION_DATABASE_ID ?? '';
 
 export const revalidate = 60;
 
@@ -37,14 +37,10 @@ export const metadata: Metadata = {
 };
 
 const getPosts = async (): Promise<Post[]> => {
-  const data = await getDatabase(databaseId);
+  const draftMode = process.env.NODE_ENV === 'development';
+  const data = await getDatabase(databaseId, draftMode);
   return data
     .map((post): Post | undefined => {
-      // @ts-expect-error
-      const status: Status = post.properties.Status.status.name;
-
-      if (status === 'Draft') return undefined;
-
       // @ts-expect-error
       const date = post.properties.Date.date?.start;
 
@@ -56,8 +52,7 @@ const getPosts = async (): Promise<Post[]> => {
         formattedDate: formatDate(date || post.created_time),
       };
     })
-    .filter((v): v is Exclude<typeof v, undefined> => v !== undefined)
-    .sort((a, b) => (a.formattedDate > b.formattedDate ? -1 : 1));
+    .filter((v): v is Exclude<typeof v, undefined> => v !== undefined);
 };
 
 export default async function Index() {

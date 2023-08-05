@@ -5,9 +5,44 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-export const getDatabase = async (databaseId) => {
+export const getDatabase = async (databaseId: string, draftMode: boolean) => {
   const response = await notion.databases.query({
     database_id: databaseId,
+    filter: {
+      or: draftMode
+        ? [
+            {
+              property: 'Status',
+              status: {
+                equals: 'Published',
+              },
+            },
+            {
+              property: 'Status',
+              status: {
+                equals: 'Draft',
+              },
+            },
+          ]
+        : [
+            {
+              property: 'Status',
+              status: {
+                equals: 'Published',
+              },
+            },
+          ],
+    },
+    sorts: [
+      {
+        property: 'Date',
+        direction: 'descending',
+      },
+      {
+        property: 'Created time',
+        direction: 'descending',
+      },
+    ],
   });
   return response.results;
 };
