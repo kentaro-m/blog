@@ -33,6 +33,16 @@ export const getDatabase = async (databaseId: string, draftMode: boolean) => {
             },
           ],
     },
+    sorts: [
+      {
+        property: 'Date',
+        direction: 'descending',
+      },
+      {
+        property: 'Created time',
+        direction: 'descending',
+      },
+    ],
   });
   return response.results;
 };

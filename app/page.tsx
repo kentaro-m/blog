@@ -52,8 +52,7 @@ const getPosts = async (): Promise<Post[]> => {
         formattedDate: formatDate(date || post.created_time),
       };
     })
-    .filter((v): v is Exclude<typeof v, undefined> => v !== undefined)
-    .sort((a, b) => (a.formattedDate > b.formattedDate ? -1 : 1));
+    .filter((v): v is Exclude<typeof v, undefined> => v !== undefined);
 };
 
 export default async function Index() {
