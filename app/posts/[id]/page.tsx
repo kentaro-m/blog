@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
 
-const databaseId = process.env.NOTION_DATABASE_ID;
+const databaseId = process.env.NOTION_DATABASE_ID ?? '';
 
 type Props = {
   params: {
@@ -46,7 +46,7 @@ export const generateMetadata = async ({
 };
 
 export const generateStaticParams = async () => {
-  const database = await getDatabase(databaseId);
+  const database = await getDatabase(databaseId, false);
   return database.map((page) => ({ id: page.id }));
 };
 
