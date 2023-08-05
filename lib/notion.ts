@@ -8,6 +8,12 @@ const notion = new Client({
 export const getDatabase = async (databaseId) => {
   const response = await notion.databases.query({
     database_id: databaseId,
+    filter: {
+      property: 'Status',
+      status: {
+        equals: 'Published',
+      },
+    },
   });
   return response.results;
 };

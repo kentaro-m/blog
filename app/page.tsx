@@ -41,11 +41,6 @@ const getPosts = async (): Promise<Post[]> => {
   return data
     .map((post): Post | undefined => {
       // @ts-expect-error
-      const status: Status = post.properties.Status.status.name;
-
-      if (status === 'Draft') return undefined;
-
-      // @ts-expect-error
       const date = post.properties.Date.date?.start;
 
       return {
