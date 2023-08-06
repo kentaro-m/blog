@@ -22,17 +22,20 @@ export const PostSummary = ({ post }: Props) => (
         bg="dark.800"
         ml={[5, 0]}
         mr={[5, 0]}
-        mb={[5, 10]}
         alignItems="center"
         justifyContent="left"
         borderRadius={7}
         as="article"
       >
         <Box key={post.slug} p={8}>
-          <Heading as="h2" fontSize={['md', 'lg']} lineHeight="base" mb={3}>
-            {post.title}
-          </Heading>
-          <Text fontSize="xs">{post.formattedDate}</Text>
+          <Text fontSize="xs" mb={2}>
+            {post.formattedDate}
+          </Text>
+          <Box minH="2lh">
+            <Heading as="h2" fontSize={['md', 'lg']} lineHeight="base">
+              {post.title}
+            </Heading>
+          </Box>
         </Box>
       </Flex>
     </Link>
