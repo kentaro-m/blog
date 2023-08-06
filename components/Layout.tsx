@@ -23,7 +23,7 @@ const Divider = styled.div`
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Container maxW="container.lg" p={[0, 5]}>
+      <Container maxW="container.lg" paddingRight={[0, 5]} paddingLeft={[0, 5]}>
         <Header />
         {children}
         <Flex height="32px" justifyContent="center" mt={10} mb={10}>
