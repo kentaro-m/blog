@@ -27,12 +27,12 @@ export const PostSummary = ({ post }: Props) => (
         borderRadius={7}
         as="article"
       >
-        <Box key={post.slug} p={8}>
+        <Box key={post.slug} p={5}>
           <Text fontSize="xs" mb={2}>
             {post.formattedDate}
           </Text>
           <Box minH="2lh">
-            <Heading as="h2" fontSize={['md', 'lg']} lineHeight="base">
+            <Heading as="h2" fontSize={['md']} lineHeight="base">
               {post.title}
             </Heading>
           </Box>
