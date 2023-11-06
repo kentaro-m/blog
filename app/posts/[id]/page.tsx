@@ -20,29 +20,34 @@ const SITE_TITLE = "kentarom's blog";
 
 export const generateMetadata = async ({
   params,
-}: Props): Promise<Metadata> => {
-  const page = await getPage(params.id);
-  // @ts-expect-error
-  const pageTitle = page.properties.Name.title[0].text.content;
-  const pageUrl = new URL(`/posts/${params.id}`, SITE_URL);
+}: Props): Promise<Metadata | undefined> => {
+  try {
+    const page = await getPage(params.id);
+    // @ts-expect-error
+    const pageTitle = page.properties.Name.title[0].text.content;
+    const pageUrl = new URL(`/posts/${params.id}`, SITE_URL);
 
-  return {
-    title: `${pageTitle} | ${SITE_TITLE}`,
-    metadataBase: pageUrl,
-    openGraph: {
-      type: 'article',
-      title: pageTitle,
-      siteName: SITE_TITLE,
-      url: pageUrl,
-      images: `${SITE_URL}/api/og?title=${encodeURIComponent(pageTitle)}`,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: pageTitle,
-      creator: '@_kentaro_m',
-      images: [`${SITE_URL}/api/og?title=${encodeURIComponent(pageTitle)}`],
-    },
-  };
+    return {
+      title: `${pageTitle} | ${SITE_TITLE}`,
+      metadataBase: pageUrl,
+      openGraph: {
+        type: 'article',
+        title: pageTitle,
+        siteName: SITE_TITLE,
+        url: pageUrl,
+        images: `${SITE_URL}/api/og?title=${encodeURIComponent(pageTitle)}`,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: pageTitle,
+        creator: '@_kentaro_m',
+        images: [`${SITE_URL}/api/og?title=${encodeURIComponent(pageTitle)}`],
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
 };
 
 export const generateStaticParams = async () => {
