@@ -10,17 +10,16 @@ export const revalidate = 60;
 const databaseId = process.env.NOTION_DATABASE_ID ?? '';
 
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 const SITE_URL = 'https://blog.kentarom.com';
 const SITE_TITLE = "kentarom's blog";
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
+export const generateMetadata = async (props: Props): Promise<Metadata> => {
+  const params = await props.params;
   const page = await getPage(params.id);
   // @ts-expect-error
   const pageTitle = page.properties.Name.title[0].text.content;
@@ -68,7 +67,8 @@ const getPost = async (id: string) => {
   };
 };
 
-export default async function Post({ params }: Props) {
+export default async function Post(props: Props) {
+  const params = await props.params;
   if (!params.id) {
     notFound();
   }

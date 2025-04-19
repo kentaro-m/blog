@@ -1,8 +1,5 @@
-module.exports = {
-  /**
-   * NOTE: disable this setting to avoid to conflict with file-loader
-   * @see https://stackoverflow.com/questions/68008498/nextjs-typeerror-unsupported-file-type-undefined-after-update-to-v-11
-   */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     disableStaticImages: true
   },
@@ -26,3 +23,5 @@ module.exports = {
     return config
   }
 }
+
+module.exports = nextConfig
